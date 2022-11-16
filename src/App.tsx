@@ -2,9 +2,7 @@ import { Box, Stack, Divider } from '@mui/material';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { increment, decrement } from './slices';
-import { Leftbar } from './components/Leftbar';
-import { Midbar } from './components/Midbar';
-import { Rightbar } from './components/Rightbar';
+import { Leftbar, Midbar, Rightbar } from './components';
 
 function App() {
   const count = useSelector(

@@ -1,0 +1,1 @@
+export { Midbar } from './component';
