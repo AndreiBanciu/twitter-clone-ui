@@ -1,11 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement } from './slices';
 
 function App() {
+  const count = useSelector((state: any) => state.counter.count);
+  const dispatch = useDispatch();
+
   return (
     <div className="App">
-      <h1>yolo</h1>
+      <button onClick={() => dispatch(increment())}>+</button>
+      <p>{count}</p>
+      <button onClick={() => dispatch(decrement())}>-</button>
     </div>
   );
 }
