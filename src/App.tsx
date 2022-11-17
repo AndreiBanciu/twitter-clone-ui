@@ -12,7 +12,12 @@ function App() {
 
   return (
     <Box>
-      <Stack direction="row" spacing={2} justifyContent="space-between">
+      <Stack
+        direction="row"
+        spacing={2}
+        justifyContent="space-between"
+        sx={{ marginRight: '5%', marginLeft: '5%' }}
+      >
         <Leftbar />
         <Midbar />
         <Rightbar />

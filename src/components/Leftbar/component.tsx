@@ -21,8 +21,6 @@ import {
 } from '@mui/material';
 
 export const Leftbar = () => {
-  const [open, setOpen] = useState(false);
-
   return (
     <Box flex={1}>
       <List>
@@ -97,7 +95,17 @@ export const Leftbar = () => {
             <ListItemText primary="More" />
           </ListItemButton>
         </ListItem>
-        <Button variant="contained">Tweet</Button>
+        <Button
+          sx={{
+            marginTop: '10px',
+            width: '100%',
+            height: '45px',
+            borderRadius: '20px'
+          }}
+          variant="contained"
+        >
+          Tweet
+        </Button>
       </List>
     </Box>
   );
