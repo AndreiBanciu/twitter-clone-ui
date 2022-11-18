@@ -13,5 +13,13 @@ export const counter = createSlice({
   }
 });
 
+export const tweets = createSlice({
+  name: 'tweets',
+  initialState: { value: [] },
+  reducers: {
+    addTweet: (state, action) => {}
+  }
+});
+
 export const { increment, decrement } = counter.actions;
 export default counter.reducer;
