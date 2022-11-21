@@ -3,7 +3,7 @@ import { Box, Typography, List, TextField } from '@mui/material';
 
 export const Rightbar = () => {
   return (
-    <Box flex={2}>
+    <Box flex={2} p={2} sx={{ display: { xs: 'none', sm: 'block' } }}>
       <Box position="fixed">
         <TextField fullWidth placeholder="Search Twitter"></TextField>
         <Box
@@ -12,7 +12,6 @@ export const Rightbar = () => {
             borderRadius: '10px',
             marginBottom: '10px',
             marginTop: '10px',
-            backgroundColor: 'grey',
             height: '400px'
           }}
         >
@@ -27,7 +26,6 @@ export const Rightbar = () => {
           sx={{
             padding: '5px',
             borderRadius: '10px',
-            backgroundColor: 'grey',
             height: '200px'
           }}
         >

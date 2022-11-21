@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { Box, Button, TextField, Typography } from '@mui/material';
-import { Stack } from '@mui/system';
+import React from 'react';
+import { Box, Button, Stack, TextField, Typography } from '@mui/material';
+import { Tweetpost } from '../Tweetpost';
 import {
   EmojiEmotions,
   EventRepeat,
   Gif,
-  Image,
   LocationOnOutlined,
-  Poll
+  Poll,
+  Image
 } from '@mui/icons-material';
 
 export const Midbar = () => {
   return (
-    <Box flex={5} sx={{ padding: '5px' }}>
+    <Box marginBottom="20px" flex={4} p={{ xs: 0, md: 2 }}>
       <Box
         sx={{
           border: 'solid',
@@ -20,20 +20,19 @@ export const Midbar = () => {
           borderBottom: '0',
           borderWidth: 'thin',
           borderColor: 'darkgrey',
-          width: 600,
-          height: 50
+          paddingLeft: '5%'
         }}
       >
-        <Typography paddingLeft="3%">Home</Typography>
+        <Typography>Home</Typography>
       </Box>
       <Box
+        paddingTop="20px"
+        paddingBottom="10px"
         sx={{
           border: 'solid',
           borderTop: '0',
           borderWidth: 'thin',
-          borderColor: 'darkgrey',
-          width: 600,
-          height: 100
+          borderColor: 'darkgrey'
         }}
       >
         <Box paddingLeft="10%" paddingRight="5%">
@@ -62,81 +61,16 @@ export const Midbar = () => {
             </Stack>
           </Box>
           <Box paddingRight="5%">
-            <Button
-              sx={{
-                width: '50%px',
-                height: '85%',
-                borderRadius: '25px'
-              }}
-              variant="contained"
-            >
+            <Button sx={{ borderRadius: '20px' }} variant="contained">
               Tweet
             </Button>
           </Box>
         </Box>
       </Box>
-      <Box>
-        <Box
-          sx={{
-            border: 'solid',
-            borderTop: '0',
-            borderWidth: 'thin',
-            borderColor: 'darkgrey',
-            width: 600,
-            height: 300
-          }}
-        >
-          tweet1
-        </Box>
-        <Box
-          sx={{
-            border: 'solid',
-            borderTop: '0',
-            borderWidth: 'thin',
-            borderColor: 'darkgrey',
-            width: 600,
-            height: 300
-          }}
-        >
-          tweet2
-        </Box>
-        <Box
-          sx={{
-            border: 'solid',
-            borderTop: '0',
-            borderWidth: 'thin',
-            borderColor: 'darkgrey',
-            width: 600,
-            height: 300
-          }}
-        >
-          tweet3
-        </Box>
-        <Box
-          sx={{
-            border: 'solid',
-            borderTop: '0',
-            borderWidth: 'thin',
-            borderColor: 'darkgrey',
-            width: 600,
-            height: 300
-          }}
-        >
-          tweet4
-        </Box>
-        <Box
-          sx={{
-            border: 'solid',
-            borderTop: '0',
-            borderWidth: 'thin',
-            borderColor: 'darkgrey',
-            width: 600,
-            height: 300
-          }}
-        >
-          tweet5
-        </Box>
-      </Box>
+      <Tweetpost />
+      <Tweetpost />
+      <Tweetpost />
+      <Tweetpost />
     </Box>
   );
 };

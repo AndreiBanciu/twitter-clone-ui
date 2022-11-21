@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Home,
   Tag,
@@ -22,8 +22,8 @@ import {
 
 export const Leftbar = () => {
   return (
-    <Box flex={2} sx={{ marginRight: '10px' }}>
-      <Box position="fixed">
+    <Box flex={1} p={2} sx={{ display: { xs: 'none', sm: 'block' } }}>
+      <Box>
         <List>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#home">

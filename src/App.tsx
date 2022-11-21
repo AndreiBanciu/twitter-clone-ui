@@ -5,12 +5,7 @@ import { Leftbar, Midbar, Rightbar } from './components';
 function App() {
   return (
     <Box>
-      <Stack
-        direction="row"
-        spacing={2}
-        justifyContent="space-between"
-        sx={{ marginRight: '10%', marginLeft: '5%' }}
-      >
+      <Stack direction="row" spacing={2} justifyContent="space-between">
         <Leftbar />
         <Midbar />
         <Rightbar />
