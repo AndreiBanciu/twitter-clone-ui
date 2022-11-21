@@ -1,0 +1,1 @@
+export { Leftbar } from './component';

@@ -1,0 +1,1 @@
+export { Tweetpost } from './component';

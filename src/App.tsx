@@ -1,17 +1,16 @@
+import { Box, Stack } from '@mui/material';
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement } from './slices';
+import { Leftbar, Midbar, Rightbar } from './components';
 
 function App() {
-  const count = useSelector((state: any) => state.counter.count);
-  const dispatch = useDispatch();
-
   return (
-    <div className="App">
-      <button onClick={() => dispatch(increment())}>+</button>
-      <p>{count}</p>
-      <button onClick={() => dispatch(decrement())}>-</button>
-    </div>
+    <Box>
+      <Stack direction="row" spacing={2} justifyContent="space-between">
+        <Leftbar />
+        <Midbar />
+        <Rightbar />
+      </Stack>
+    </Box>
   );
 }
 
