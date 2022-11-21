@@ -16,6 +16,7 @@ import {
   CardHeader,
   CardMedia,
   Checkbox,
+  Grid,
   IconButton,
   Typography
 } from '@mui/material';
@@ -51,21 +52,31 @@ export const Tweetpost = () => {
           image="https://images.pexels.com/photos/4534200/pexels-photo-4534200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
         />
         <CardActions>
-          <IconButton>
-            <ChatBubble fontSize="small" />
-          </IconButton>
-          <IconButton>
-            <Loop fontSize="small" />
-          </IconButton>
-          <IconButton>
-            <Checkbox
-              icon={<FavoriteBorder fontSize="small" />}
-              checkedIcon={<Favorite sx={{ color: 'red' }} />}
-            />
-          </IconButton>
-          <IconButton>
-            <Share fontSize="small" />
-          </IconButton>
+          <Grid container justifyContent={'space-around'}>
+            <Grid item>
+              <IconButton>
+                <ChatBubble fontSize="small" />
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <IconButton>
+                <Loop fontSize="small" />
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <IconButton>
+                <Checkbox
+                  icon={<FavoriteBorder fontSize="small" />}
+                  checkedIcon={<Favorite sx={{ color: 'red' }} />}
+                />
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <IconButton>
+                <Share fontSize="small" />
+              </IconButton>
+            </Grid>
+          </Grid>
         </CardActions>
       </Card>
     </Box>
