@@ -17,9 +17,13 @@ export const tweets = createSlice({
   name: 'tweets',
   initialState: { value: [] },
   reducers: {
-    addTweet: (state, action) => {}
+    getTweets: (state, action) => {
+      state.value = action.payload;
+    }
   }
 });
 
 export const { increment, decrement } = counter.actions;
+export const { getTweets } = tweets.actions;
 export default counter.reducer;
+tweets.reducer;
