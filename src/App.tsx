@@ -1,16 +1,22 @@
-import { Box, Stack } from '@mui/material';
 import React from 'react';
-import { Leftbar, Midbar, Rightbar } from './components';
+import { Grid } from '@mui/material';
+import { Leftbar, Midbar, Rightbar } from './components/MainComponents';
 
 function App() {
   return (
-    <Box>
-      <Stack direction="row" spacing={2} justifyContent="space-between">
+    <Grid container columns={12}>
+      <Grid item xs={2}></Grid>
+      <Grid item xs={2}>
         <Leftbar />
+      </Grid>
+      <Grid item xs={4}>
         <Midbar />
+      </Grid>
+      <Grid item xs={2}>
         <Rightbar />
-      </Stack>
-    </Box>
+      </Grid>
+      <Grid item xs={2}></Grid>
+    </Grid>
   );
 }
 

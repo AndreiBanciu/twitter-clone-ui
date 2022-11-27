@@ -22,18 +22,18 @@ import {
 
 export const Leftbar = () => {
   return (
-    <Box flex={1} p={2} sx={{ display: { xs: 'none', sm: 'block' } }}>
+    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
       <Box>
         <List>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#home">
+            <ListItemButton>
               <ListItemIcon>
                 <Twitter fontSize="large" />
               </ListItemIcon>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#home">
+            <ListItemButton>
               <ListItemIcon>
                 <Home fontSize="large" />
               </ListItemIcon>
@@ -41,7 +41,7 @@ export const Leftbar = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton>
               <ListItemIcon>
                 <Tag fontSize="large" />
               </ListItemIcon>
@@ -49,7 +49,7 @@ export const Leftbar = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton>
               <ListItemIcon>
                 <Notifications fontSize="large" />
               </ListItemIcon>
@@ -57,7 +57,7 @@ export const Leftbar = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton>
               <ListItemIcon>
                 <Forum fontSize="large" />
               </ListItemIcon>
@@ -65,7 +65,7 @@ export const Leftbar = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton>
               <ListItemIcon>
                 <Bookmarks fontSize="large" />
               </ListItemIcon>
@@ -73,7 +73,7 @@ export const Leftbar = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton>
               <ListItemIcon>
                 <ViewList fontSize="large" />
               </ListItemIcon>
@@ -81,7 +81,7 @@ export const Leftbar = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton>
               <ListItemIcon>
                 <Person4 fontSize="large" />
               </ListItemIcon>
@@ -89,7 +89,7 @@ export const Leftbar = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton>
               <ListItemIcon>
                 <More fontSize="large" />
               </ListItemIcon>

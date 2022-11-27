@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
-import { Tweetpost } from '../Tweetpost';
 import {
   EmojiEmotions,
   EventRepeat,
@@ -9,10 +8,28 @@ import {
   Poll,
   Image
 } from '@mui/icons-material';
+import { useState } from 'react';
+import { addTweet } from '../../redux/tweets/actions';
+import { useAppDispatch } from '../../redux/use-app-dispatch';
 
-export const Midbar = () => {
+export const AddTweet = () => {
+  const [tweet, setTweet] = useState('');
+  const dispatch = useAppDispatch();
+
+  const addNewTweet = () => {
+    if (tweet === '') {
+      return;
+    }
+    const tweetInput = {
+      id: Math.floor(Math.random() * 100000),
+      content: tweet
+    };
+    dispatch(addTweet(tweetInput));
+    setTweet('');
+  };
+
   return (
-    <Box marginBottom="20px" flex={4} p={{ xs: 0, md: 2 }}>
+    <Box>
       <Box
         sx={{
           border: 'solid',
@@ -42,6 +59,9 @@ export const Midbar = () => {
             multiline
             rows={2}
             variant="standard"
+            type="text"
+            value={tweet}
+            onChange={(e) => setTweet(e.target.value)}
           />
         </Box>
         <Box
@@ -61,18 +81,16 @@ export const Midbar = () => {
             </Stack>
           </Box>
           <Box paddingRight="5%">
-            <Button sx={{ borderRadius: '20px' }} variant="contained">
+            <Button
+              onClick={addNewTweet}
+              sx={{ borderRadius: '20px' }}
+              variant="contained"
+            >
               Tweet
             </Button>
           </Box>
         </Box>
       </Box>
-      <Tweetpost />
-      <Tweetpost />
-      <Tweetpost />
-      <Tweetpost />
     </Box>
   );
 };
-
-export default Midbar;
