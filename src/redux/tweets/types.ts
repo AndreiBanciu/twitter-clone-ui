@@ -1,6 +1,11 @@
 export type TweetItem = {
-  id: number;
-  content: string;
+  id: string;
+  user: string;
+  value: string;
+};
+export type TweetItemInput = {
+  user: string;
+  value: string;
 };
 
 export type TweetsState = {

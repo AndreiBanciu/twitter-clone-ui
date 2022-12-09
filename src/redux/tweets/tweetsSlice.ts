@@ -19,7 +19,7 @@ const tweetSlice = createSlice({
       })
       .addCase(getTweets.fulfilled, (state, action) => {
         state.loading = false;
-        state.tweetsData = action.payload;
+        state.tweetsData = action.payload.data;
       })
       .addCase(getTweets.rejected, (state, action) => {
         state.loading = false;
@@ -53,7 +53,6 @@ const tweetSlice = createSlice({
       })
       .addCase(addTweet.fulfilled, (state, action) => {
         state.loading = false;
-        state.tweetsData = [...state.tweetsData, action.payload];
       })
       .addCase(addTweet.rejected, (state, action) => {
         state.loading = false;

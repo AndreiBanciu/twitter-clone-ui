@@ -13,7 +13,6 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  CardMedia,
   Checkbox,
   Grid,
   IconButton,
@@ -59,8 +58,8 @@ export const TweetsList = () => {
               <Card>
                 <CardHeader
                   avatar={<Avatar sx={{ bgcolor: 'royalblue' }}>A</Avatar>}
-                  title="Andrei Banciu"
-                  subheader="@andreibanciu"
+                  title={tweet.user}
+                  subheader={'@' + tweet.user.toLowerCase()}
                   action={
                     <IconButton
                       id="options-button"
@@ -90,13 +89,9 @@ export const TweetsList = () => {
                 />
                 <CardContent>
                   <Typography variant="body2" color="text.secondary">
-                    {tweet.content}
+                    {tweet.value}
                   </Typography>
                 </CardContent>
-                <CardMedia
-                  component="img"
-                  image="https://images.pexels.com/photos/4534200/pexels-photo-4534200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                />
                 <CardActions>
                   <Grid container justifyContent={'space-around'}>
                     <Grid item>

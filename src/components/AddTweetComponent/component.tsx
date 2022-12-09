@@ -9,11 +9,12 @@ import {
   Image
 } from '@mui/icons-material';
 import { useState } from 'react';
-import { addTweet } from '../../redux/tweets/actions';
+import { addTweet, getTweets } from '../../redux/tweets/actions';
 import { useAppDispatch } from '../../redux/use-app-dispatch';
 
 export const AddTweet = () => {
   const [tweet, setTweet] = useState('');
+  const [user, setUser] = useState('user');
   const dispatch = useAppDispatch();
 
   const addNewTweet = () => {
@@ -21,10 +22,10 @@ export const AddTweet = () => {
       return;
     }
     const tweetInput = {
-      id: Math.floor(Math.random() * 100000),
-      content: tweet
+      user: user,
+      value: tweet
     };
-    dispatch(addTweet(tweetInput));
+    dispatch(addTweet(tweetInput)).then(() => dispatch(getTweets()));
     setTweet('');
   };
 
