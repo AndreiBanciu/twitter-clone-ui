@@ -23,7 +23,7 @@ import {
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux';
-import { deleteTweet } from '../../redux/tweets/actions';
+import { deleteTweet, getTweets } from '../../redux/tweets/actions';
 import { useAppDispatch } from '../../redux/use-app-dispatch';
 
 export const TweetsList = () => {
@@ -79,7 +79,11 @@ export const TweetsList = () => {
                         onClose={handleClose}
                       >
                         <MenuItem
-                          onClick={() => dispatch(deleteTweet(tweet.id))}
+                          onClick={() =>
+                            dispatch(deleteTweet(tweet.id)).then(() => {
+                              dispatch(getTweets());
+                            })
+                          }
                         >
                           Delete
                         </MenuItem>

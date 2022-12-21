@@ -1,12 +1,13 @@
 import axios from 'axios';
-import { TweetItem, TweetItemInput } from './types';
+import { TweetItemInput } from './types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { TWEETS_URL } from './constants';
 
 export const getTweets = createAsyncThunk(
   'tweets/getTweets',
   async (data, thunkApi) => {
     try {
-      const response = await axios.get('http://localhost:5000/api/tweets');
+      const response = await axios.get(TWEETS_URL);
       return response.data;
     } catch (error: any) {
       const message = error.message;
@@ -31,7 +32,8 @@ export const deleteTweet = createAsyncThunk(
   'tweet/deleteTweet',
   async (tweetId: string, thunkApi) => {
     try {
-      return tweetId;
+      const response = await axios.delete(`${TWEETS_URL}/${tweetId}`);
+      return response.data;
     } catch (error: any) {
       const message = error.message;
       return thunkApi.rejectWithValue(message);
@@ -43,10 +45,7 @@ export const addTweet = createAsyncThunk(
   'tweet/addTweet',
   async (tweet: TweetItemInput, thunkApi) => {
     try {
-      const response = await axios.post(
-        'http://localhost:5000/api/tweets',
-        tweet
-      );
+      const response = await axios.post(TWEETS_URL, tweet);
       return response;
     } catch (error: any) {
       const message = error.message;
