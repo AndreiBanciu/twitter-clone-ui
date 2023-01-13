@@ -1,9 +1,10 @@
 import {
   ChatBubble,
+  DeleteForever,
+  Edit,
   Favorite,
   FavoriteBorder,
   Loop,
-  MoreVert,
   Share
 } from '@mui/icons-material';
 import {
@@ -16,15 +17,14 @@ import {
   Checkbox,
   Grid,
   IconButton,
-  Menu,
-  MenuItem,
   Typography
 } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux';
-import { deleteTweet, getTweets } from '../../redux/tweets/actions';
+import { deleteTweet, getTweet, getTweets } from '../../redux/tweets/actions';
 import { useAppDispatch } from '../../redux/use-app-dispatch';
+import { EditPopup } from '../EditPopupComponent';
 
 export const TweetsList = () => {
   const {
@@ -32,17 +32,11 @@ export const TweetsList = () => {
   } = useSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const [popup, setPopup] = useState(false);
 
   return (
     <Grid>
+      {popup && <EditPopup setPopup={setPopup} />}
       {tweetsData &&
         tweetsData.map((tweet, index) => {
           return (
@@ -56,41 +50,37 @@ export const TweetsList = () => {
               }}
             >
               <Card>
-                <CardHeader
-                  avatar={<Avatar sx={{ bgcolor: 'royalblue' }}>A</Avatar>}
-                  title={tweet.user}
-                  subheader={'@' + tweet.user.toLowerCase()}
-                  action={
-                    <IconButton
-                      id="options-button"
-                      aria-controls={open ? 'options-menu' : undefined}
-                      aria-expanded={open ? 'true' : undefined}
-                      aria-haspopup="true"
-                      onClick={handleClick}
-                    >
-                      <MoreVert />
-                      <Menu
-                        id="options-menu"
-                        MenuListProps={{
-                          'aria-labelledby': 'options-button'
-                        }}
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                      >
-                        <MenuItem
-                          onClick={() =>
-                            dispatch(deleteTweet(tweet.id)).then(() => {
-                              dispatch(getTweets());
-                            })
-                          }
-                        >
-                          Delete
-                        </MenuItem>
-                      </Menu>
+                <Grid container justifyContent={'space-between'}>
+                  <Grid item>
+                    <CardHeader
+                      avatar={<Avatar sx={{ bgcolor: 'royalblue' }}>A</Avatar>}
+                      title={tweet.user}
+                      subheader={'@' + tweet.user.toLowerCase()}
+                    />
+                  </Grid>
+                  <Grid item>
+                    <IconButton>
+                      <Edit
+                        onClick={() =>
+                          dispatch(getTweet(tweet.id)).then(() => {
+                            setPopup(true);
+                          })
+                        }
+                        fontSize="small"
+                      />
                     </IconButton>
-                  }
-                />
+                    <IconButton>
+                      <DeleteForever
+                        onClick={() =>
+                          dispatch(deleteTweet(tweet.id)).then(() => {
+                            dispatch(getTweets());
+                          })
+                        }
+                        fontSize="small"
+                      />
+                    </IconButton>
+                  </Grid>
+                </Grid>
                 <CardContent>
                   <Typography variant="body2" color="text.secondary">
                     {tweet.value}

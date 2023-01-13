@@ -18,9 +18,10 @@ export const getTweets = createAsyncThunk(
 
 export const getTweet = createAsyncThunk(
   'tweet/getTweet',
-  async (data: string, thunkApi) => {
+  async (tweetId: string, thunkApi) => {
     try {
-      return data;
+      const response = await axios.get(`${TWEETS_URL}/${tweetId}`);
+      return response.data;
     } catch (error: any) {
       const message = error.message;
       return thunkApi.rejectWithValue(message);
@@ -46,6 +47,22 @@ export const addTweet = createAsyncThunk(
   async (tweet: TweetItemInput, thunkApi) => {
     try {
       const response = await axios.post(TWEETS_URL, tweet);
+      return response;
+    } catch (error: any) {
+      const message = error.message;
+      return thunkApi.rejectWithValue(message);
+    }
+  }
+);
+
+export const editTweet = createAsyncThunk(
+  'tweet/editTweet',
+  async (input: { tweetId: string; tweet: TweetItemInput }, thunkApi) => {
+    try {
+      const response = await axios.put(
+        `${TWEETS_URL}/${input.tweetId}`,
+        input.tweet
+      );
       return response;
     } catch (error: any) {
       const message = error.message;

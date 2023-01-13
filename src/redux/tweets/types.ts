@@ -11,5 +11,5 @@ export type TweetItemInput = {
 export type TweetsState = {
   loading: boolean;
   tweetsData: TweetItem[];
-  myTweet: TweetItem[];
+  myTweet: TweetItem;
 };
